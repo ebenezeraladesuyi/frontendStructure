@@ -3,6 +3,7 @@ import {createBrowserRouter} from "react-router-dom";
 import { HomeLayout } from '../components';
 // import { Home } from '../pages';
 import { BoundaryError } from '../utils';
+import { fetchDictionary } from '../utils/api';
 import NotFound from '../utils/hoc/NotFound';
 
 const Home = lazy(() => import(("../pages/Home")));
@@ -19,7 +20,8 @@ const About = lazy(() => import(("../pages/About")))
                     index: true,
                     element: <Home/>,
                     errorElement: <BoundaryError/>,
-                    hasErrorBoundary: true
+                    hasErrorBoundary: true,
+                    loader: fetchDictionary
                 },
                 {
                     path:"/about",
